@@ -300,6 +300,34 @@ h1, h2, h3, h4, h5, h6 {
     margin-right: 5px;
 }
 
+
+/* Description overlay */
+.project-desc-overlay {
+  position: absolute;
+  bottom: -60px; /* hidden initially */
+  left: 0;
+  width: 100%;
+  padding: 15px;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  opacity: 0;
+  transition: all 0.35s ease;
+}
+
+/* When hovered → slide up + fade in */
+.modern-project-card:hover .project-desc-overlay {
+  bottom: 0;
+  opacity: 1;
+}
+
+/* Make overlay blend with your existing overlay */
+.project-desc-overlay p {
+  margin: 0;
+}
+
+
 /* Better spacing on mobiles */
 @media (max-width: 576px) {
     .project-info {
