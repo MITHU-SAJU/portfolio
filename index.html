@@ -391,19 +391,20 @@
         <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="${index * 100}">
           <div class="modern-project-card">
 
-            <div class="project-img-wrapper">
-              <img src="${p.image}" alt="${p.title}">
-              <div class="project-overlay"></div>
+          <div class="project-img-wrapper">
+  <img src="${p.image}" alt="${p.title}">
+  <div class="project-overlay"></div>
 
-              <div class="project-hover-buttons">
-                <a href="${p.github}" target="_blank" class="btn btn-light btn-sm">
-                  <i class="fab fa-github"></i>
-                </a>
-                <a href="${p.link}" target="_blank" class="btn btn-primary btn-sm">
-                  <i class="fas fa-external-link-alt"></i>
-                </a>
-              </div>
-            </div>
+  <!-- DESCRIPTION OVERLAY -->
+  <div class="project-desc-overlay">
+    <p>${p.description}</p>
+  </div>
+
+  <div class="project-hover-buttons">
+    ...
+  </div>
+</div>
+
 
             <div class="project-info">
               <h4>${p.title}</h4>
