@@ -201,140 +201,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-/* project */
-.modern-project-card {
-    border-radius: 16px;
-    overflow: hidden;
-    position: relative;
-    transition: transform .35s ease, box-shadow .35s ease;
-    box-shadow: 0 6px 15px rgba(18, 0, 0, 0.08);
-    background: #fff;
-}
 
-@media (min-width: 768px) {
-    .modern-project-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 15px 35px rgba(0,0,0,0.20);
-    }
-}
-
-/* Image wrapper */
-.project-img-wrapper {
-    position: relative;
-    height: 200px;
-    overflow: hidden;
-}
-
-@media (max-width: 576px) {
-    .project-img-wrapper {
-        height: 160px; /* smaller height for mobiles */
-    }
-}
-
-.project-img-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform .5s ease;
-}
-.img-fluid {
-    max-width: 75% !important;
-    height: auto !important;
-}
-@media (hover: hover) {
-    .modern-project-card:hover .project-img-wrapper img {
-        transform: scale(1.12);
-    }
-}
-
-/* Overlay */
-.project-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, transparent, rgba(0,0,0,0.65));
-    opacity: 0;
-    transition: .4s ease;
-}
-
-@media (hover: hover) {
-    .modern-project-card:hover .project-overlay {
-        opacity: 1;
-    }
-}
-
-/* Hover Buttons */
-.project-hover-buttons {
-    position: absolute;
-    bottom: -40px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-    transition: bottom .4s ease;
-}
-
-@media (hover: hover) {
-    .modern-project-card:hover .project-hover-buttons {
-        bottom: 20px;
-    }
-}
-
-/* Info box */
-.project-info {
-    padding: 20px 18px;
-}
-
-.project-info h4 {
-    font-weight: 700;
-    font-size: 19px;
-}
-
-.project-info p {
-    font-size: 14px;
-    color: #6c757d;
-}
-
-/* Tech badge */
-.tech-badge {
-    background: #eef3ff;
-    color: #0045cc;
-    padding: 5px 10px;
-    border-radius: 8px;
-    font-size: 12px;
-    margin-right: 5px;
-}
-
-
-/* Description overlay */
-.project-desc-overlay {
-  position: absolute;
-  bottom: -60px; /* hidden initially */
-  left: 0;
-  width: 100%;
-  padding: 15px;
-  background: rgba(0,0,0,0.55);
-  color: #fff;
-  font-size: 0.9rem;
-  line-height: 1.4;
-  opacity: 0;
-  transition: all 0.35s ease;
-}
-
-/* When hovered → slide up + fade in */
-.modern-project-card:hover .project-desc-overlay {
-  bottom: 0;
-  opacity: 1;
-}
-
-/* Make overlay blend with your existing overlay */
-.project-desc-overlay p {
-  margin: 0;
-}
-/* PROJECT SECTION */
-.projects-section {
-  padding: 90px 0;
-  background: #f8f9ff;
-}
 
 .section-header h6 {
   color: #6c63ff;
@@ -349,127 +216,216 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 30px;
 }
 
-/* CARD */
-.modern-project-card {
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(12px);
-  border-radius: 20px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-  transition: all 0.35s ease;
-  cursor: pointer;
-}
+/* ================= PROJECTS SECTION ================= */
+/* ================= PROJECTS SECTION ================= */
 
-.modern-project-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 22px 50px rgba(0,0,0,0.15);
-}
-
-/* IMAGE */
-.project-img-wrapper {
+.projects-section {
   position: relative;
-  height: 230px;
   overflow: hidden;
+  background: #f8f9ff;
+   padding: 40px 0;
 }
 
-.project-img-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: 0.6s ease;
+/* ================= CONTAINER & PAGE SETUP ================= */
+
+#projects-container {
+  position: relative;
+  min-height: 560px;
+  perspective: 2200px;
 }
 
-.modern-project-card:hover img {
-  transform: scale(1.15);
-}
-
-.project-overlay {
+/* Each project as a "page" */
+.project-page {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.45);
-  opacity: 0;
-  transition: 0.4s ease;
+  display: none;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+
+  padding-bottom: 40px; /* minimal base */
+  box-sizing: border-box;
 }
 
-.modern-project-card:hover .project-overlay {
-  opacity: 1;
+
+
+.project-page.active {
+  display: block;
+  padding-bottom: 24px; /* tighter when visible */
 }
 
-/* HOVER DESCRIPTION */
-.project-desc-overlay {
-  position: absolute;
-  bottom: -70px;
-  left: 0;
+
+/* ================= PROJECT CARD ================= */
+
+.portfolio-project {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 40px;
+  background: #ffffff;
+  border-radius: 26px;
+  padding: 40px;
+  align-items: center;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.12);
+}
+
+/* ================= IMAGE ================= */
+
+.portfolio-image {
+  border-radius: 20px;
+  overflow: hidden;
   width: 100%;
-  padding: 15px;
-  background: rgba(0, 0, 0, 0.55);
-  color: #fff;
-  font-size: 0.9rem;
-  opacity: 0;
-  transition: all 0.35s ease;
+  height: 100%;
+  max-height: 380px;
 }
 
-.modern-project-card:hover .project-desc-overlay {
-  bottom: 0;
-  opacity: 1;
+.portfolio-image img {
+  width: 100%;
+  height: 100%;
+  object-fit:contain;
+  display: block;
 }
 
-/* HOVER BUTTONS */
-.project-hover-buttons {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%) translateY(20px);
+/* ================= CONTENT ================= */
+
+.portfolio-content h3 {
+  font-weight: 800;
+  font-size: clamp(20px, 2.4vw, 26px);
+  margin-bottom: 14px;
+}
+
+.portfolio-desc {
+  font-size: clamp(14px, 1.1vw, 16px);
+  line-height: 1.65;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Buttons */
+.project-info-buttons {
   display: flex;
+  flex-wrap: wrap;
   gap: 12px;
-  opacity: 0;
-  transition: 0.4s ease;
+  margin-top: 10px;
 }
 
-.modern-project-card:hover .project-hover-buttons {
-  transform: translateX(-50%) translateY(0);
-  opacity: 1;
+.project-info-buttons .btn {
+  border-radius: 999px;
+  padding: 7px 18px;
+  font-size: 13px;
 }
 
-/* INFO */
-.project-info {
-  padding: 20px;
-}
+/* ================= TECH BADGES ================= */
 
-.project-info h4 {
-  font-size: 1.25rem;
-  font-weight: 700;
+.tech-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
 }
 
 .tech-badge {
-  display: inline-block;
-  background: #6c63ff20;
-  color: #6c63ff;
-  padding: 5px 12px;
-  border-radius: 50px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  margin-right: 6px;
+  background: #eef3ff;
+  color: #0045cc;
+  font-size: 12px;
+  padding: 6px 14px;
+  border-radius: 999px;
 }
 
+/* ================= NAVIGATION ARROWS ================= */
 
-.project-info-buttons {
+.project-nav {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
   display: flex;
-  gap: 10px;
-  margin: 12px 0 15px;
+  justify-content: space-between;
+  z-index: 20;
+  pointer-events: none;
 }
 
-.project-info-buttons .btn-sm {
-  padding: 5px 14px;
-  border-radius: 50px;
-  font-size: 0.8rem;
-  font-weight: 600;
+.project-nav button {
+  pointer-events: all;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  font-size: 26px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease, background 0.25s ease;
 }
 
-.project-title-row h4 {
-  margin-bottom: 10px;
-  font-weight: 700;
+.project-nav button:hover {
+  background: #000;
+  transform: scale(1.15);
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Large tablets & small laptops */
+@media (max-width: 1200px) {
+  .portfolio-project {
+    gap: 32px;
+    padding: 34px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+  #projects-container {
+    min-height: 640px;
+  }
+
+  .portfolio-project {
+    grid-template-columns: 1fr;
+    padding: 30px;
+  }
+
+  .portfolio-image {
+    max-height: 260px;
+  }
+
+  .project-nav {
+    top: auto;
+    bottom: 20px;
+    transform: none;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 576px) {
+  .projects-section {
+    padding: 70px 0;
+  }
+
+  #projects-container {
+    min-height: 620px;
+  }
+
+  .portfolio-project {
+    padding: 22px;
+    gap: 22px;
+  }
+
+  .portfolio-image {
+    max-height: 220px;
+  }
+
+  .project-nav {
+    bottom: 14px;
+    padding: 0 10px;
+  }
+
+  .project-nav button {
+    width: 42px;
+    height: 42px;
+    font-size: 22px;
+  }
 }
 
 
@@ -559,4 +515,5 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 3.5rem;
     }
 }
+
 
